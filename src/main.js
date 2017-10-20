@@ -7,9 +7,6 @@ import router from './router'
 
 Vue.use(Router)
 
-// import KitDoc from './'
-// Vue.use(KitDoc)
-
 Vue.config.productionTip = false
 
 /* eslint-disable no-new */

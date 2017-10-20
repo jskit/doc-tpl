@@ -1,7 +1,7 @@
 <template>
   <div class="kit-doc-header">
     <div class="kit-doc-header__top">
-      <a class="kit-doc-header__logo" :style="{ backgroundImage: `url(${logo})` }" href="/"></a>
+      <a class="kit-doc-header__logo" href="/"></a>
       <ul class="kit-doc-header__top-nav">
         <li v-for="(value, key) in nav" :key="value">
           <a :href="value" :class="{ active: key === active }">{{ key }}</a>
@@ -14,12 +14,6 @@
 <script>
 export default {
   name: 'doc-header',
-
-  data() {
-    return {
-      logo: '../assets/img/logo.png',
-    }
-  },
 
   props: {
     nav: Object,
@@ -76,6 +70,7 @@ export default {
     display: block;
     width: 100px;
     height: 80%;
+    background-image: url('../assets/img/logo.png');
     background-size: contain;
     background-repeat: no-repeat;
   }
