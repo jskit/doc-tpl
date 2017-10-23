@@ -18,31 +18,31 @@
 // import { findIndex } from 'lodash'
 import { camelCase, upperFirst } from './utils' // 使用简版
 // 不能用已有标签，比如 header
-import DocNav from './components/Nav.vue'
-import DocBlock from './components/Block.vue'
-import DocHeader from './components/Header.vue'
-import DocFooter from './components/Footer.vue'
-import DocContainer from './components/Container.vue'
-import DocContent from './components/Content.vue'
-import DocTitle from './components/Title.vue'
-import DocFooterNav from './components/FooterNav.vue'
-import DocSimulator from './components/Simulator.vue'
-import DocDemoBlock from './components/DemoBlock.vue'
+// import DocNav from './components/Nav.vue'
+// import DocBlock from './components/Block.vue'
+// import DocHeader from './components/Header.vue'
+// import DocFooter from './components/Footer.vue'
+// import DocContainer from './components/Container.vue'
+// import DocContent from './components/Content.vue'
+// import DocTitle from './components/Title.vue'
+// import DocFooterNav from './components/FooterNav.vue'
+// import DocSimulator from './components/Simulator.vue'
+// import DocDemoBlock from './components/DemoBlock.vue'
 
 export default {
   name: 'kit-doc',
 
   components: {
-    DocNav,
-    DocHeader,
-    DocFooter,
-    DocBlock,
-    DocContainer,
-    DocContent,
-    DocTitle,
-    DocFooterNav,
-    DocSimulator,
-    DocDemoBlock,
+    // DocNav,
+    // DocHeader,
+    // DocFooter,
+    // DocBlock,
+    // DocContainer,
+    // DocContent,
+    // DocTitle,
+    // DocFooterNav,
+    // DocSimulator,
+    // DocDemoBlock,
   },
 
   props: {

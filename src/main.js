@@ -4,8 +4,10 @@ import Vue from 'vue'
 import Router from 'vue-router'
 import App from './App'
 import router from './router'
+import KitDoc from '../'
 
 Vue.use(Router)
+Vue.use(KitDoc)
 
 Vue.config.productionTip = false
 

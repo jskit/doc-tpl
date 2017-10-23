@@ -8,7 +8,7 @@
 
 <script>
 import configDocs from './config/docs'
-import KitDoc from './KitDoc'
+// import KitDoc from './KitDoc'
 function map(arr, key) {
   return arr.map(item => {
     return item[key]
@@ -19,7 +19,7 @@ export default {
   name: 'app',
 
   components: {
-    [KitDoc.name]: KitDoc,
+    // [KitDoc.name]: KitDoc,
   },
 
   data() {
