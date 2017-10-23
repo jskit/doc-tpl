@@ -27,6 +27,10 @@ export default {
     // navConfig: Array,
     list: Array,
     index: Number,
+    base: {
+      type: String,
+      default: '',
+    },
   },
 
   data() {
@@ -87,7 +91,7 @@ export default {
     handleNavClick(direction) {
       const nav = direction === 'prev' ? this.leftNav : this.rightNav
       if (nav.path) {
-        this.$router.push(`/component/${nav.path}`)
+        this.$router.push(`${this.base}/${nav.path}`)
       } else if (nav.link) {
         location.href = nav.link
       }

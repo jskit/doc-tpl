@@ -6,7 +6,7 @@
       <doc-content>
         <doc-title :title="docTitle" />
         <slot></slot>
-        <doc-footer-nav :list="docList" :index="currentIndex" />
+        <doc-footer-nav :base="config.navBase" :list="docList" :index="currentIndex" />
       </doc-content>
     </doc-container>
     <doc-simulator v-if="simulator" :src="simulator" />
