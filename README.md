@@ -1,2 +1,3 @@
-# dockit
+# kit-doc
+
 preview doc template

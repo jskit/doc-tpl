@@ -2,7 +2,7 @@
   <div class="kit-doc">
     <doc-header :nav="config.header" :logo="config.logo" active="组件" />
     <doc-container :hasSimulator="!!simulator">
-      <doc-nav :navConfig="config.nav" base="/component" />
+      <doc-nav :navConfig="config.nav" :base="config.navBase" />
       <doc-content>
         <doc-title :title="docTitle" />
         <slot></slot>
@@ -65,7 +65,7 @@ export default {
 
   computed: {
     currentPath() {
-      const baseUrl = '/component/'
+      const baseUrl = this.config.navBase + '/' // eg: '/docs'
       return this.$route.path.slice(baseUrl.length)
     },
     currentIndex() {

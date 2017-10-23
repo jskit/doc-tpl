@@ -15,7 +15,7 @@ const routes = reqFiles.keys().map(key => {
 // 处理特殊路由
 routes.push({
   path: '*',
-  redirect: '/',
+  redirect: '/docs',
   // redirect: {
   //   name: 'index',
   // },

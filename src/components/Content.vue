@@ -28,6 +28,10 @@ export default {
   position: relative;
   padding-bottom: 75px;
 
+  .doc-title {
+    padding-bottom: 0;
+  }
+
   a {
     color: $kit-doc-blue;
   }
@@ -46,6 +50,10 @@ export default {
       font-weight: normal;
       margin: 20px 0 10px;
       color: rgba(51, 51, 51, .9);
+
+      &:empty {
+        display: none;
+      }
     }
 
     > h1 {

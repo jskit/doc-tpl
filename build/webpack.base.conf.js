@@ -25,6 +25,7 @@ module.exports = {
       'vue$': 'vue/dist/vue.esm.js',
       '@': resolve('src'),
       'assets': path.resolve(__dirname, '../src/assets'),
+      '@root': path.resolve(__dirname, '../'),
     }
   },
   module: {
@@ -47,6 +48,22 @@ module.exports = {
         test: /\.js$/,
         loader: 'babel-loader',
         include: [resolve('src'), resolve('test')]
+      },
+      {
+        test: /\.md/,
+        loader: 'vue-markdown-loader',
+        options: {
+          preventExtract: true,
+          use: [
+            [require('markdown-it-container'), 'demo']
+          ], preprocess(MarkdownIt, source) {
+            const styleRegexp = /<style\b[^<]*(?:(?!<\/style>)<[^<]*)*<\/style>/i;
+            const scriptRegexp = /<script\b[^<]*(?:(?!<\/script>)<[^<]*)*<\/script>/i;
+            MarkdownIt.renderer.rules.table_open = () =>
+              '<table class="kit-doc-table">';
+            return source.replace(styleRegexp, '').replace(scriptRegexp, '');
+          }
+        }
       },
       {
         test: /\.(png|jpe?g|gif|svg)(\?.*)?$/,
