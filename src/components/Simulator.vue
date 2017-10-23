@@ -65,7 +65,8 @@ export default {
       return this.scrollTop > 60
     },
     simulatorStyle() {
-      const height = Math.min(556, this.windowHeight - 222)
+      // const height = Math.min(556, this.windowHeight - 222)
+      const height = this.windowHeight - 222
       return {
         height: height + 'px',
       }
@@ -122,6 +123,7 @@ export default {
 
   iframe {
     width: 100%;
+    height: 100%;
     display: block;
   }
 

@@ -16,19 +16,19 @@
 
 <script>
 // import { findIndex } from 'lodash'
+import { camelCase, upperFirst } from './utils' // 使用简版
 // 不能用已有标签，比如 header
-import DocNav from './component/Nav.vue'
-import DocBlock from './component/Block.vue'
-import DocHeader from './component/Header.vue'
-import DocFooter from './component/Footer.vue'
-import DocContainer from './component/Container.vue'
-import DocContent from './component/Content.vue'
-import DocTitle from './component/Title.vue'
-import DocFooterNav from './component/FooterNav.vue'
-import DocSimulator from './component/Simulator.vue'
-import DocDemoBlock from './component/DemoBlock.vue'
+import DocNav from './components/Nav.vue'
+import DocBlock from './components/Block.vue'
+import DocHeader from './components/Header.vue'
+import DocFooter from './components/Footer.vue'
+import DocContainer from './components/Container.vue'
+import DocContent from './components/Content.vue'
+import DocTitle from './components/Title.vue'
+import DocFooterNav from './components/FooterNav.vue'
+import DocSimulator from './components/Simulator.vue'
+import DocDemoBlock from './components/DemoBlock.vue'
 
-import { camelCase, upperFirst } from './util' // 使用简版
 export default {
   name: 'kit-doc',
 

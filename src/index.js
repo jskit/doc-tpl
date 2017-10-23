@@ -1,6 +1,6 @@
 import KitDoc from './KitDoc'
 
-const modules = require.context('./component', false, /\.vue$/)
+const modules = require.context('./components', false, /\.vue$/)
 
 // At build-time cache will be populated with all required modules.
 // 返回对象

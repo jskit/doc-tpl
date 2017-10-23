@@ -6,7 +6,7 @@
 
 <script>
 // import { camelCase, upperFirst } from 'lodash'
-import { camelCase, upperFirst } from '../util' // 使用简版
+import { camelCase, upperFirst } from '../utils' // 使用简版
 export default {
   name: 'doc-nav-link',
   props: ['base', 'item'],
