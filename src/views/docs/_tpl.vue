@@ -31,7 +31,6 @@ export default {
   computed: {
     getSimulatorPath() {
       const dir = this.$route.path.split('/').pop()
-      console.log(dir)
       if (docs.indexOf(dir) > -1) {
         return '/#/demo/'
       }

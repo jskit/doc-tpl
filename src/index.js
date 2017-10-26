@@ -1,6 +1,15 @@
 import KitDoc from './KitDoc'
 
-const modules = require.context('./components', false, /\.vue$/)
+const cache = {}
+const reqModules = require.context('./components', false, /\.vue$/)
+const components = reqModules.keys().map((key) => {
+  // TODO: 这里 export default 语法在不同的使用场景，
+  // 导出不友好，需特殊处理
+  // 当前项目引用，import .vue 文件 OK
+  // 提供给外部引用，则需要 .default 特殊处理
+  // console.log(reqModules(key))
+  return cache[key.replace(/(^\.\/)|(.vue)$/g, '')] = reqModules(key).default || reqModules(key)
+})
 
 // At build-time cache will be populated with all required modules.
 // 返回对象
@@ -10,19 +19,6 @@ const modules = require.context('./components', false, /\.vue$/)
 //   return module
 // }, {})
 
-const cache = {}
-const components = modules.keys().map((key) => {
-  // TODO: 这里 export default 语法在不同的使用场景，
-  // 导出不友好，需特殊处理
-  // 当前项目引用，import .vue 文件 OK
-  // 提供给外部引用，则需要 .default 特殊处理
-  // console.log(modules(key))
-  return cache[key.replace(/(^\.\/)|(.vue)$/g, '')] = modules(key).default || modules(key)
-})
-
-console.log('kit-doc components:')
-console.log(components)
-// console.log(KitDoc)
 components.push(KitDoc)
 
 const install = function (Vue, opts = {}) {
