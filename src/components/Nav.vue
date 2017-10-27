@@ -1,6 +1,6 @@
 <template>
   <div class="kit-doc-nav">
-    <ul>
+    <ul class="kit-doc-nav__list">
       <li class="kit-doc-nav__item" v-for="(item, index) in navConfig" :key="index">
         <doc-nav-link :item="item" :base="base" />
         <ul v-if="item.children">
@@ -11,7 +11,7 @@
         <template v-if="item.groups">
           <div v-for="(group, index) in item.groups" :key="index">
             <div class="kit-doc-nav__group-title">{{ group.title }}</div>
-            <ul>
+            <ul class="kit-doc-nav__list">
               <li :key="index" class="kit-doc-nav__subitem" v-for="(navItem, index) in group.list" v-if="!navItem.disabled">
                 <doc-nav-link :item="navItem" :base="base" />
               </li>
@@ -56,7 +56,11 @@ export default {
     min-width: 220px;
     max-width: 220px;
   }
-
+  &__list{
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
   &__item,
   &__subitem {
     a {

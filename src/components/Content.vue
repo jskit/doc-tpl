@@ -93,26 +93,26 @@ export default {
       color: #666;
       font-size: 14px;
       line-height: 20px;
-      margin: 5px 0 5px 20px;
-      padding-left: 15px;
+      margin: 8px 0;
+      // padding-left: 15px;
       position: relative;
 
-      &::before {
-        content: '';
-        position: absolute;
-        top: 50%;
-        left: 0;
-        width: 6px;
-        height: 6px;
-        margin-top: -2px;
-        border-radius: 50%;
-        box-sizing: border-box;
-        border: 1px solid $kit-doc-dark-grey;
-      }
+      // &::before {
+      //   content: '';
+      //   position: absolute;
+      //   top: 50%;
+      //   left: 0;
+      //   width: 6px;
+      //   height: 6px;
+      //   margin-top: -2px;
+      //   border-radius: 50%;
+      //   box-sizing: border-box;
+      //   border: 1px solid $kit-doc-dark-grey;
+      // }
 
-      li {
-        margin-left: 0;
-      }
+      // li {
+      //   margin-left: 0;
+      // }
     }
 
     > hr {

@@ -49,7 +49,8 @@ $color-error    = #f04134;
         left: 22px;
         margin-top: -2px;
         display: inline-block;
-        size: 4px;
+        width: 4px;
+        height: 4px;
         border-radius: 4px;
       }
     }
