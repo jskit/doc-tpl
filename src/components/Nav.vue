@@ -75,6 +75,9 @@ export default {
       &.active {
         color: $kit-doc-blue;
         background-color: #f5f7fa;
+        border-right: 3px solid;
+        padding-right: 1px;
+        margin-right: -1px;
       }
     }
   }
