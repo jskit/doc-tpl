@@ -27,6 +27,7 @@ export default {
   flex: 1;
   position: relative;
   padding-bottom: 75px;
+  overflow: hidden;
 
   .doc-title {
     padding-bottom: 0;
