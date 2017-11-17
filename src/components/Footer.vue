@@ -29,6 +29,7 @@ export default {
 
 .kit-doc-footer {
   margin-top: 40px;
+  padding: 1px 0;
   position: relative;
   background-color: #061A2A;
 
