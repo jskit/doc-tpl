@@ -16,7 +16,7 @@
 
 <script>
 export default {
-  name: 'doc-footer',
+  name: 'kit-doc-footer',
 
   props: {
     config: Object,
@@ -28,8 +28,8 @@ export default {
 @import '../style/var';
 
 .kit-doc-footer {
-  margin-top: 40px;
-  padding: 1px 0;
+  // margin-top: 40px;
+  // padding: 1px 0;
   position: relative;
   background-color: #061A2A;
 
@@ -55,8 +55,33 @@ export default {
   }
 }
 
-.github-corner .octo-arm {
-  animation: octocat-wave 3s ease-in-out infinite;
+.github-corner {
+  position: absolute;
+  top: -50px;
+  right: 61px;
+  height: 50px;
+  width: 40px;
+  overflow: hidden;
+
+  svg {
+    fill: transparent;
+    color: #fff;
+    position: absolute;
+    border: 0;
+    right: -29px;
+    opacity: .9;
+    transition: .3s;
+    transform: rotate(-45deg);
+
+    &:hover {
+      opacity: 1;
+      transform: rotate(-45deg) scale(1.15) !important;
+    }
+  }
+
+  .octo-arm {
+    animation: octocat-wave 3s ease-in-out infinite;
+  }
 }
 
 @keyframes octocat-wave {

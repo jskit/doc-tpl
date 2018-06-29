@@ -76,6 +76,7 @@
     "opn": "5.2.0",
     "optimize-css-assets-webpack-plugin": "3.2.0",
     "ora": "2.0.0",
+    "postcss-calc": "^6.0.1",
     "rimraf": "^2.6.0",
     "selenium-server": "3.9.1",
     "semver": "5.5.0",
@@ -104,6 +105,8 @@
   "browserslist": [
     "> 1%",
     "last 2 versions",
+    "Android >= 4.0",
+    "iOS >= 7",
     "not ie <= 8"
   ]
 }

@@ -1,12 +1,12 @@
 <template>
-  <section v-if="title" class="doc-title">
+  <section v-if="title" class="kit-doc-title">
     <h1>{{ title }}</h1>
   </section>
 </template>
 
 <script>
 export default {
-  name: 'doc-title',
+  name: 'kit-doc-title',
 
   props: {
     title: String,

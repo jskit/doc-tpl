@@ -1,19 +1,19 @@
 <template>
-  <div class="doc-block">
+  <div class="kit-doc-block">
     <slot></slot>
   </div>
 </template>
 
 <script>
 export default {
-  name: 'doc-block',
+  name: 'kit-doc-block',
 }
 </script>
 
 <style lang="stylus">
 @import '../style/var';
 
-.doc-block {
+.kit-doc-block {
   display: flex;
   margin-bottom: 20px;
 

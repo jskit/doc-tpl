@@ -1,16 +1,21 @@
 <template>
   <div class="kit-doc">
-    <doc-header :nav="config.header" :logo="config.logo" active="组件" />
-    <doc-container :hasSimulator="!!simulator">
-      <doc-nav :navConfig="config.nav" :base="config.navBase" />
-      <doc-content>
-        <doc-title :title="docTitle" />
+    <kit-doc-header :nav="config.header" :logo="config.logo" active="组件" />
+    <kit-doc-nav :navConfig="config.nav" :base="config.navBase" />
+    <kit-doc-container :hasSimulator="!!(simulator && simulator.length)">
+      <kit-doc-content>
+        <kit-doc-title :title="docTitle" />
         <slot></slot>
-        <doc-footer-nav :base="config.navBase" :list="docList" :index="currentIndex" />
-      </doc-content>
-    </doc-container>
-    <doc-simulator v-if="simulator" :src="simulator" />
-    <doc-footer :config="config.footer" />
+        <kit-doc-footer-nav :base="config.navBase" :list="docList" :index="currentIndex" />
+      </kit-doc-content>
+    </kit-doc-container>
+    <kit-doc-simulator v-if="simulator" :src="simulator" />
+    <!-- <kit-doc-simulator
+      v-for="(url, index) in simulators"
+      v-show="index === currentSimulator"
+      :src="url"
+    /> -->
+    <!-- <kit-doc-footer :config="config.footer" /> -->
   </div>
 </template>
 
@@ -50,7 +55,12 @@ export default {
       type: Object,
       required: true,
     },
+    currentSimulator: Number,
     simulator: String,
+    simulators: {
+      type: Array,
+      default: () => {}
+    },
   },
 
   data() {

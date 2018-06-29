@@ -1,18 +1,20 @@
 <template>
-  <div class="kit-doc-demo-block">
+  <section class="kit-doc-demo-block">
     <h2 class="kit-doc-demo-block__subtitle">{{ title }}</h2>
     <slot></slot>
-  </div>
+  </section>
 </template>
 
 <script>
+import Vue from 'vue';
+
 export default {
-  name: 'doc-demo-block',
+  name: 'kit-doc-demo-block',
 
   props: {
-    title: String,
-  },
-}
+    title: String
+  }
+};
 </script>
 
 <style lang="stylus">
@@ -23,6 +25,15 @@ export default {
   &__subtitle {
     margin: 0;
     font-weight: normal;
+    font-size: 14px;
+    color: $kit-doc-text-light-blue;
+    padding: 40px 15px 15px;
+  }
+  
+  &:first-of-type {
+    .kit-doc-demo-block__title {
+      padding-top: 20px;
+    }
   }
 
   &__title {

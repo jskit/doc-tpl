@@ -1,27 +1,25 @@
 <template>
   <div class="kit-doc-footer-nav">
-    <a
-      href="javascript:void(0)"
+    <div
       v-if="leftNav"
       class="kit-doc-footer-nav__link kit-doc-footer-nav__left"
       @click="handleNavClick('prev')">
       <div class="kit-doc-footer-nav__arrow-left"></div>
       <span>{{ leftNav.title }}</span>
-    </a>
-    <a
-      href="javascript:void(0)"
+    </div>
+    <div
       v-if="rightNav"
       class="kit-doc-footer-nav__link kit-doc-footer-nav__right"
       @click="handleNavClick('next')">
       <span>{{ rightNav.title }}</span>
       <div class="kit-doc-footer-nav__arrow-right"></div>
-    </a>
+    </div>
   </div>
 </template>
 
 <script>
 export default {
-  name: 'doc-footer-nav',
+  name: 'kit-doc-footer-nav',
 
   props: {
     // navConfig: Array,
@@ -58,6 +56,12 @@ export default {
   //   },
   // },
 
+  // created() {
+  //   this.setNav();
+  //   this.updateNav();
+  //   this.keyboardHandler();
+  // },
+
   methods: {
     // setNav() {
     //   const nav = this.navConfig
@@ -74,33 +78,41 @@ export default {
     // },
 
     // updateNav() {
-    //   const baseUrl = '/component'
-    //   let currentIndex
+    //   let currentIndex;
 
-    //   this.currentPath = this.$route.path.slice(baseUrl.length)
+    //   this.currentPath = '/' + this.$route.path.split('/').pop();
+
     //   for (let i = 0, len = this.nav.length; i < len; i++) {
-    //     if (this.nav[i].path === this.currentPath.substr(1)) {
-    //       currentIndex = i
-    //       break
+    //     if (this.nav[i].path === this.currentPath) {
+    //       currentIndex = i;
+    //       break;
     //     }
     //   }
-    //   this.leftNav = this.nav[currentIndex - 1]
-    //   this.rightNav = this.nav[currentIndex + 1]
+    //   this.leftNav = this.nav[currentIndex - 1];
+    //   this.rightNav = this.nav[currentIndex + 1];
     // },
 
     handleNavClick(direction) {
-      const nav = direction === 'prev' ? this.leftNav : this.rightNav
+      const nav = direction === 'prev' ? this.leftNav : this.rightNav;
       if (nav.path) {
-        this.$router.push(`${this.base}/${nav.path}`)
+        this.$router.push(`${this.base}/${nav.path}`);
       } else if (nav.link) {
-        location.href = nav.link
+        window.location.href = nav.link;
       }
     },
   },
 
-  created() {
-    // this.setNav()
-    // this.updateNav()
+  keyboardHandler() {
+    window.addEventListener('keyup', (event) => {
+      switch (event.keyCode) {
+        case 37: // left
+          this.handleNavClick('prev');
+          break;
+        case 39: // right
+          this.handleNavClick('next');
+          break;
+      }
+    });
   },
 }
 </script>
@@ -113,15 +125,22 @@ export default {
   right: 0;
   bottom: 0;
   display: flex;
-  padding: 24px 40px;
+  padding: 24px 45px;
   position: absolute;
-  border-top: 1px solid $kit-doc-border-color;
 
   &__link {
     flex: 1;
-    font-size: 16px;
+    font-size: 14px;
     line-height: 1.5;
-    color: $kit-doc-blue;
+    cursor: pointer;
+    opacity: 0.7;
+    color: $kit-doc-code-color;
+    transition: 0.3s;
+
+    &:hover {
+      opacity: 1;
+      color: $kit-doc-blue;
+    }
 
     .van-icon {
       font-size: 12px;
@@ -135,7 +154,7 @@ export default {
 
   &__left,
   &__right {
-    padding: 0 20px;
+    padding: 0 15px;
     position: relative;
   }
 
@@ -148,19 +167,20 @@ export default {
     top: 50%;
     width: 8px;
     height: 8px;
+    margin-top: -4px;
     position: absolute;
-    border: solid $kit-doc-blue;
+    border: solid currentColor;
     border-width: 0 1px 1px 0;
   }
 
   &__arrow-left {
     left: 0;
-    transform: rotate(135deg) translateY(50%);
+    transform: rotate(135deg);
   }
 
   &__arrow-right {
     right: 0;
-    transform: rotate(-45deg) translateY(-50%);
+    transform: rotate(-45deg);
   }
 }
 </style>

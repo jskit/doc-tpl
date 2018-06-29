@@ -6,15 +6,15 @@
 
 <script>
 export default {
-  name: 'doc-content',
+  name: 'kit-doc-content',
 
   computed: {
     currentPage() {
-      const { path } = this.$route
+      const { path } = this.$route;
       if (path) {
-        return path.split('/').slice(-1)[0]
+        return path.split('/').slice(-1)[0];
       }
-      return this.$route.name
+      return this.$route.name;
     },
   },
 }
@@ -26,19 +26,14 @@ export default {
 .kit-doc-content {
   flex: 1;
   position: relative;
-  padding-bottom: 75px;
-  overflow: hidden;
-
-  .doc-title {
-    padding-bottom: 0;
-  }
+  padding: 0 0 75px;
 
   a {
     color: $kit-doc-blue;
   }
 
   section {
-    padding: 0 $kit-doc-padding;
+    padding: 10px $kit-doc-padding;
     overflow: hidden;
 
     > h1,
@@ -63,14 +58,21 @@ export default {
 
     > h2 {
       font-size: 30px;
+      margin-bottom: 25px;
     }
 
     > h3 {
-      font-size: 20px;
+      font-size: 22px;
+      margin-top: 45px;
+    }
+
+    > h2 + h3 {
+      margin-top: 25px;
     }
 
     > h4 {
       font-size: 16px;
+      margin-bottom: 15px;
     }
 
     > h5 {
@@ -83,37 +85,43 @@ export default {
     }
 
     > p {
-      margin: 14px 0;
+      margin: 15px 0;
       font-size: 14px;
-      line-height: 20px;
-      color: $kit-doc-dark-grey;
+      line-height: 26px;
+      color: $kit-doc-text-color;
+    }
+
+    > ul,
+    > ol {
+      padding: 15px 0;
+      background-color: #f5f7fa;
     }
 
     > ul li,
     > ol li {
-      color: #666;
+      color: $kit-doc-text-color;
       font-size: 14px;
-      line-height: 20px;
-      margin: 8px 0;
-      // padding-left: 15px;
+      line-height: 22px;
+      margin: 5px 0 5px 20px;
+      padding-left: 15px;
       position: relative;
 
-      // &::before {
-      //   content: '';
-      //   position: absolute;
-      //   top: 50%;
-      //   left: 0;
-      //   width: 6px;
-      //   height: 6px;
-      //   margin-top: -2px;
-      //   border-radius: 50%;
-      //   box-sizing: border-box;
-      //   border: 1px solid $kit-doc-dark-grey;
-      // }
+      &::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 6px;
+        height: 6px;
+        margin-top: 8px;
+        border-radius: 50%;
+        box-sizing: border-box;
+        border: 1px solid $kit-doc-dark-grey;
+      }
 
-      // li {
-      //   margin-left: 0;
-      // }
+      li {
+        margin-left: 0;
+      }
     }
 
     > hr {
@@ -123,15 +131,54 @@ export default {
 
     p > code,
     li > code,
-    .kit-doc-table code {
+    table code {
       margin: 2px;
       padding: 2px 7px;
-      display: inline-block;
-      vertical-align: middle;
+      display: inline;
+    }
+  }
+
+  blockquote {
+    padding: 16px;
+    margin: 20px 0;
+    font-size: 14px;
+    border-radius: 4px;
+    background-color: #ecf9ff;
+    color: rgba(52, 73, 94, .8);
+    border-left: 5px solid #50bfff;
+  }
+
+  table {
+    width: 100%;
+    font-size: 13px;
+    line-height: 1.5;
+    margin-bottom: 45px;
+    background-color: #fff;
+    border-collapse: collapse;
+    color: $van-doc-text-color;
+
+    th {
+      padding: 8px 10px;
+      text-align: left;
+      font-weight: normal;
+      background-color: #f5f7fa;
+      border: 1px solid $van-doc-border-color;
+
+      &:first-child {
+        padding-left: 10px;
+      }
     }
 
-    .kit-doc-table code {
+    td {
+      padding: 8px;
+      border: 1px solid $van-doc-border-color;
+    }
+
+    code {
+      font-size: 13px;
       padding: 0 8px;
+      font-family: inherit;
+      word-break: keep-all;
     }
   }
 
