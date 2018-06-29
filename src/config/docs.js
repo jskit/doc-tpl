@@ -1,3 +1,4 @@
+import { version } from '@root/package.json';
 
 export const components = [
   {
@@ -559,6 +560,13 @@ export default {
     },
   },
   navBase: '/docs',
+  logo: {
+    href: '/',
+    title: 'Kit-UI',
+    // image: './assets/img/logo.png',
+    image: 'https://vuejs.org/images/logo.png',
+    version,
+  },
   nav: [
     {
       title: '开发指南',
