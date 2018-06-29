@@ -562,7 +562,7 @@ export default {
   navBase: '/docs',
   logo: {
     href: '/',
-    title: 'Kit-UI',
+    title: 'Kit-Doc',
     // image: './assets/img/logo.png',
     image: 'https://vuejs.org/images/logo.png',
     version,
