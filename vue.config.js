@@ -20,6 +20,8 @@ module.exports = {
       .loader("vue-markdown-loader");
   },
 
+  runtimeCompiler: true,
+
   css: {
     modules: true,
     loaderOptions: {
