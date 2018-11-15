@@ -3,7 +3,6 @@
   "version": "3.0.0",
   "description": "文档模板",
   "main": "./src/index.js",
-  "private": true,
   "scripts": {
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build",
