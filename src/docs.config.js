@@ -534,23 +534,23 @@ export const components = [
   },
 ]
 
-export const language = {
-  'zh-cn': {
-    home: '/',
-    guideline: '/guideline',
-    component: '/component',
-    pattern: '/pattern',
-    weapp: '/weapp',
-  },
-}
+// export const language = {
+//   'zh-cn': {
+//     home: '/',
+//     component: '/component',
+//     pattern: '/pattern',
+//     weapp: '/weapp',
+//   },
+// }
 export default {
   header: {
     '首页': '/',
-    '指引': '/guideline',
-    '组件': '/component',
+    'Vue 组件': '/components',
     // '模式': '/patterns',
-    '实战': '/project',
-    '小程序': '/weapp',
+    '微信小程序': '/wxapp',
+    '支付宝小程序': '/aliapp',
+    'Demo': '/demo',
+    github: 'https://github.com/jskit'
   },
   footer: {
     github: 'https://github.com/jskit/kit-doc',
@@ -559,6 +559,7 @@ export default {
       '意见反馈': 'https://github.com/jskit/kit-doc/issues',
     },
   },
+  active: 'Vue 组件',
   navBase: '/docs',
   logo: {
     href: '/',

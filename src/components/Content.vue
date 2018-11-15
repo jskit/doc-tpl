@@ -155,7 +155,7 @@ export default {
     margin-bottom: 45px;
     background-color: #fff;
     border-collapse: collapse;
-    color: $van-doc-text-color;
+    color: $kit-doc-text-color;
 
     th {
       padding: 8px 10px;

@@ -6,7 +6,7 @@ import App from './App'
 import router from './router'
 import KitDoc from '../'
 
-import 'nprogress/nprogress.css';
+import './permission'
 
 Vue.use(Router)
 Vue.use(KitDoc)

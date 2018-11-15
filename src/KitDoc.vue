@@ -1,6 +1,6 @@
 <template>
   <div class="kit-doc">
-    <kit-doc-header :nav="config.header" :logo="config.logo" active="组件" />
+    <kit-doc-header :nav="config.header" :logo="config.logo" :active="config.active || '组件'" />
     <kit-doc-nav :navConfig="config.nav" :base="config.navBase" />
     <kit-doc-container :hasSimulator="!!(simulator && simulator.length)">
       <kit-doc-content>
@@ -14,6 +14,7 @@
       v-for="(url, index) in simulators"
       v-show="index === currentSimulator"
       :src="url"
+      :key="url"
     /> -->
     <!-- <kit-doc-footer :config="config.footer" /> -->
   </div>
@@ -51,7 +52,6 @@ export default {
   },
 
   props: {
-    active: String,
     config: {
       type: Object,
       required: true,

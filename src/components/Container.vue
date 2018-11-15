@@ -30,7 +30,7 @@ export default {
 
     @media (max-width: 1300px) {
       padding-right: $kit-doc-simulator-small-width + $kit-doc-padding;
-      // padding-right: calc($van-doc-simulator-small-width + $van-doc-padding);
+      // padding-right: calc($kit-doc-simulator-small-width + $kit-doc-padding);
     }
   }
 }

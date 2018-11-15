@@ -142,7 +142,7 @@ export default {
       color: $kit-doc-blue;
     }
 
-    .van-icon {
+    .kit-icon {
       font-size: 12px;
       line-height: 16px;
     }

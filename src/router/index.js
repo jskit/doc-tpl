@@ -20,7 +20,7 @@ const routes = [
     path: '*',
     name: '404',
     redirect: {
-      path: '/docs',
+      path: '/',
     },
   },
 ];

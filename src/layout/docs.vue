@@ -8,7 +8,8 @@
 
 <script>
 // import { map } from 'lodash'
-import configDocs from '@/config/docs'
+import configDocs from '@/docs.config'
+
 function map(arr, key) {
   return arr.map(item => {
     return item[key]
