@@ -1,6 +1,6 @@
 {
   "name": "kit-doc",
-  "version": "2.0.3",
+  "version": "3.0.0",
   "description": "文档模板",
   "main": "./src/index.js",
   "private": true,
