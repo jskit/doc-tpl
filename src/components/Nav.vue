@@ -84,6 +84,7 @@ export default {
   padding: 25px 0 75px;
   min-width: $kit-doc-nav-width;
   max-width: $kit-doc-nav-width;
+  border-right: 1px solid $kit-doc-border-color;
 
   @media (max-width: 1300px) {
     min-width: 220px;

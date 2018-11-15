@@ -51,6 +51,7 @@ export default {
   },
 
   props: {
+    active: String,
     config: {
       type: Object,
       required: true,

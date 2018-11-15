@@ -1,75 +1,99 @@
-import Vue from 'vue'
-import Router from 'vue-router'
-// import store from '../store'
+import Vue from 'vue';
+import Router from 'vue-router';
 
-Vue.use(Router)
+import layoutDocs from '../layout/docs';
+import layoutDemo from '../layout/demo';
 
-// 路由去中心化
-// https://webpack.js.org/guides/dependency-management/#require-context
-// 目前export default .js处理不好，需特殊处理，.vue的处理 OK
-const reqModules = require.context('../views', true, /^\.(\/([\s\S])+)?\/route\.js$/)
-const routes = reqModules.keys().map(key => {
-  return reqModules(key).default
-}, {})
+const Index = () => import(/* webpackChunkName: "docs" */ `@root/README.md`)
+const ChangeLog = () => import(/* webpackChunkName: "docs" */ `@root/CHANGELOG.md`)
 
-// 处理特殊路由
-routes.push({
-  path: '*',
-  redirect: '/docs',
-  // redirect: {
-  //   name: 'index',
-  // },
-})
+const lazyLoad =
+  process.env.NODE_ENV === 'production'
+    ? file => () =>
+        import(/* webpackChunkName: "x-[index]" */ '@/views/' + file)
+    : file => require('@/views/' + file).default;
+
+Vue.use(Router);
+
+const routes = [
+  {
+    path: '*',
+    name: '404',
+    redirect: {
+      path: '/docs',
+    },
+  },
+];
+
+const docsRoutes = [{
+  path: '/docs', // `/${config.navBase}`,
+  component: layoutDocs,
+  children: [
+    {
+      path: '/',
+      redirect: {
+        name: 'docs',
+      },
+    },
+    {
+      path: 'quickstart',
+      name: 'docs',
+      component: Index,
+      meta: {
+        title: '快速上手',
+      },
+    },
+    {
+      path: 'changelog',
+      name: 'changelog',
+      component: ChangeLog,
+      meta: {
+        title: '更新日志',
+      },
+    },
+    // ...
+    {
+      path: '*',
+      component: lazyLoad('docs/is-comming.md'),
+    },
+  ],
+}];
+
+const isComming = {
+  template: `
+    <div>demo isComming</div>
+  `,
+}
+const demoRoutes = [{
+  path: '/demo', // `/${config.navBase}`,
+  component: layoutDemo,
+  children: [
+    {
+      path: '/',
+      alias: 'index',
+      name: 'demo',
+      meta: {
+        title: 'Demo 示例',
+      },
+      component: lazyLoad('demo/index.vue'),
+    },
+    // ...
+    { path: '*', component: isComming },
+  ],
+}];
 
 const router = new Router({
-  mode: 'hash',
-  base: '',
-  scrollBehavior: () => ({ y: 0 }),
-  routes,
-})
+  routes: [
+    {
+      path: '/',
+      meta: { },
+      redirect: {
+        name: 'docs',
+      },
+    },
+    ...docsRoutes,
+    ...demoRoutes,
+  ],
+});
 
-// const loginRouteName = 'login'
-const loginPath = '/login'
-router.beforeEach((to, from, next) => {
-  const {
-    meta = {},
-  } = to
-  const {
-    needAuth = false,
-    title = '',
-    desc = '',
-  } = meta
-
-  // const { logged = false } = store.state
-  const logged = false
-
-  if (needAuth && loggedIn && to.path !== loginRouteName) {
-    // this route requires auth, check if logged in
-    // if not, redirect to login page.
-    return next({
-      // name: loginRouteName,
-      path: loginPath,
-      query: { redirect: to.fullPath },
-    })
-  }
-
-  if (title) {
-    document.title = title
-  }
-  if (desc) {
-    // ...
-  }
-
-  // hack: 在微信等webview中无法修改document.title的情况
-  // let $iframe = $('<iframe src="/isLive.action" style="display:none;"></iframe>');
-  // $iframe.on('load',function() {
-  //   setTimeout(function() {
-  //     $iframe.off('load').remove();
-  //   }, 0);
-  // }).appendTo($body);
-
-  // 确保一定要调用 next()
-  next()
-})
-
-export default router
+export default router;

@@ -104,7 +104,7 @@ export default {
   overflow: hidden;
   position: absolute;
   border-radius: 6px;
-  background: #f2f2f4;
+  background: #fafafa;
   box-sizing: border-box;
   right: $kit-doc-padding;
   width: $kit-doc-simulator-width;

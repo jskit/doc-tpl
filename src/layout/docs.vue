@@ -1,5 +1,5 @@
 <template>
-  <section class="tpl-docs">
+  <section class="layout-docs">
     <kit-doc :simulator="getSimulatorPath" :config="config">
       <router-view></router-view>
     </kit-doc>
@@ -16,7 +16,7 @@ function map(arr, key) {
 }
 const docs = map(configDocs.nav[0].groups[0].list, 'path')
 export default {
-  name: 'tpl-docs',
+  name: 'layout-docs',
   components: {
   },
 

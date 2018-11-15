@@ -1,5 +1,5 @@
 <template>
-  <section class="tpl-demo">
+  <section class="layout-demo">
     <transition :name="transition">
       <router-view class="page-demo"></router-view>
     </transition>
@@ -8,7 +8,7 @@
 
 <script>
 export default {
-  name: 'tpl-demo',
+  name: 'layout-demo',
   data() {
     return {
       transition: 'slide-left',
@@ -31,7 +31,7 @@ body {
   width: 100%;
   overflow-y: hidden;
 }
-.tpl-demo,
+.layout-demo,
 .page-demo {
   height: 100%;
 }
