@@ -1,10 +1,18 @@
 <template>
   <div class="kit-doc-nav" :style="style">
     <ul class="kit-doc-nav__list">
-      <li class="kit-doc-nav__item" v-for="(item, index) in navConfig" :key="index">
+      <li
+        class="kit-doc-nav__item"
+        v-for="(item, index) in navConfig"
+        :key="index"
+      >
         <kit-doc-nav-link :item="item" :base="base" />
         <ul v-if="item.children">
-          <li class="nav-item" v-for="(navItem, index) in item.children" :key="index">
+          <li
+            class="nav-item"
+            v-for="(navItem, index) in item.children"
+            :key="index"
+          >
             <kit-doc-nav-link :item="navItem" :base="base" />
           </li>
         </ul>
@@ -12,7 +20,12 @@
           <div v-for="(group, index) in item.groups" :key="index">
             <div class="kit-doc-nav__group-title">{{ group.title }}</div>
             <ul class="kit-doc-nav__list">
-              <li :key="index" class="kit-doc-nav__subitem" v-for="(navItem, index) in group.list" v-if="!navItem.disabled">
+              <li
+                :key="index"
+                class="kit-doc-nav__subitem"
+                v-for="(navItem, index) in group.list"
+                v-if="!navItem.disabled"
+              >
                 <kit-doc-nav-link :item="navItem" :base="base" />
               </li>
             </ul>
@@ -24,21 +37,21 @@
 </template>
 
 <script>
-import NavLink from './NavLink.vue'
+import NavLink from "./NavLink.vue";
 
 export default {
-  name: 'kit-doc-nav',
+  name: "kit-doc-nav",
 
   components: {
-    [NavLink.name]: NavLink,
+    [NavLink.name]: NavLink
   },
 
   props: {
     navConfig: Array,
     base: {
       type: String,
-      default: '',
-    },
+      default: ""
+    }
   },
 
   data() {
@@ -51,14 +64,14 @@ export default {
   computed: {
     style() {
       return {
-        top: this.top + 'px',
-        bottom: this.bottom + 'px'
+        top: this.top + "px",
+        bottom: this.bottom + "px"
       };
     }
   },
 
   created() {
-    window.addEventListener('scroll', this.onScroll);
+    window.addEventListener("scroll", this.onScroll);
     this.onScroll();
   },
 
@@ -67,7 +80,7 @@ export default {
       const { pageYOffset: offset } = window;
       this.top = Math.max(0, 60 - offset);
     }
-  },
+  }
 };
 </script>
 

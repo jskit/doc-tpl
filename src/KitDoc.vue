@@ -1,28 +1,38 @@
 <template>
   <div class="kit-doc">
-    <kit-doc-header :nav="config.header" :logo="config.logo" :active="config.active || '组件'" />
+    <kit-doc-header
+      :nav="config.header"
+      :logo="config.logo"
+      :active="config.active || '组件'"
+    />
     <kit-doc-nav :navConfig="config.nav" :base="config.navBase" />
     <kit-doc-container :hasSimulator="!!(simulator && simulator.length)">
       <kit-doc-content>
         <kit-doc-title :title="docTitle" />
         <slot></slot>
-        <kit-doc-footer-nav :base="config.navBase" :list="docList" :index="currentIndex" />
+        <kit-doc-footer-nav
+          :base="config.navBase"
+          :list="docList"
+          :index="currentIndex"
+        />
       </kit-doc-content>
     </kit-doc-container>
     <kit-doc-simulator v-if="simulator" :src="simulator" />
-    <!-- <kit-doc-simulator
-      v-for="(url, index) in simulators"
-      v-show="index === currentSimulator"
-      :src="url"
-      :key="url"
-    /> -->
+    <!--
+      <kit-doc-simulator
+        v-for="(url, index) in simulators"
+        v-show="index === currentSimulator"
+        :src="url"
+        :key="url"
+      />
+    -->
     <!-- <kit-doc-footer :config="config.footer" /> -->
   </div>
 </template>
 
 <script>
 // import { findIndex } from 'lodash'
-import { camelCase, upperFirst } from './utils' // 使用简版
+import { camelCase, upperFirst } from "./utils"; // 使用简版
 // 不能用已有标签，比如 header
 // import DocNav from './components/Nav.vue'
 // import DocBlock from './components/Block.vue'
@@ -36,7 +46,7 @@ import { camelCase, upperFirst } from './utils' // 使用简版
 // import DocDemoBlock from './components/DemoBlock.vue'
 
 export default {
-  name: 'kit-doc',
+  name: "kit-doc",
 
   components: {
     // DocNav,
@@ -54,70 +64,69 @@ export default {
   props: {
     config: {
       type: Object,
-      required: true,
+      required: true
     },
     currentSimulator: Number,
     simulator: String,
     simulators: {
       type: Array,
       default: () => {}
-    },
+    }
   },
 
   data() {
     return {
-      docList: [],
-    }
+      docList: []
+    };
   },
 
   created() {
-    this.setDocsList()
+    this.setDocsList();
   },
 
   computed: {
     currentPath() {
-      const baseUrl = this.config.navBase + '/' // eg: '/docs'
-      return this.$route.path.slice(baseUrl.length)
+      const baseUrl = this.config.navBase + "/"; // eg: '/docs'
+      return this.$route.path.slice(baseUrl.length);
     },
     currentIndex() {
-      const { currentPath, docList } = this
-      let index = -1
+      const { currentPath, docList } = this;
+      let index = -1;
       // findIndex
       for (let i = 0; i < docList.length; i++) {
-        const item = docList[i]
+        const item = docList[i];
         if (item.path === currentPath || item.link === currentPath) {
-          index = i
-          break
+          index = i;
+          break;
         }
       }
       // return findIndex(this.docList, { path: this.currentPath })
-      return index
+      return index;
     },
     docTitle() {
-      const { title = '' } = this.docList[this.currentIndex] || ''
-      return upperFirst(camelCase(title))
-    },
+      const { title = "" } = this.docList[this.currentIndex] || "";
+      return upperFirst(camelCase(title));
+    }
   },
 
   methods: {
     setDocsList() {
-      const { nav = [] } = this.config
+      const { nav = [] } = this.config;
       for (let i = 0; i < nav.length; i++) {
-        const navItem = nav[i]
+        const navItem = nav[i];
         if (!navItem.groups) {
-          this.docList.push(nav[i])
+          this.docList.push(nav[i]);
         } else {
           for (let j = 0; j < navItem.groups.length; j++) {
-            this.docList = this.docList.concat(navItem.groups[j].list)
+            this.docList = this.docList.concat(navItem.groups[j].list);
           }
         }
       }
-    },
-  },
-}
+    }
+  }
+};
 </script>
 
 <style lang="stylus">
 @import './style/index';
-
 </style>

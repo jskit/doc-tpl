@@ -1,14 +1,18 @@
 <template>
-  <section class="kit-doc-demo-section" :class="`demo-${demoName}`" :style="style">
+  <section
+    class="kit-doc-demo-section"
+    :class="`demo-${demoName}`"
+    :style="style"
+  >
     <slot></slot>
   </section>
 </template>
 
 <script>
-import Vue from 'vue';
+// import Vue from "vue";
 
 export default {
-  name: 'kit-doc-demo-section',
+  name: "kit-doc-demo-section",
 
   props: {
     name: String,
@@ -31,7 +35,7 @@ export default {
     getParentName() {
       const { $parent } = this;
       if ($parent && $parent.$options.name) {
-        return $parent.$options.name.replace('demo-', '');
+        return $parent.$options.name.replace("demo-", "");
       }
     }
   }

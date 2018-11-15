@@ -1,13 +1,11 @@
 <template>
-  <div class="kit-doc-block">
-    <slot></slot>
-  </div>
+  <div class="kit-doc-block"><slot></slot></div>
 </template>
 
 <script>
 export default {
-  name: 'kit-doc-block',
-}
+  name: "kit-doc-block"
+};
 </script>
 
 <style lang="stylus">

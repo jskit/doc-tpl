@@ -1,15 +1,26 @@
 <template>
-  <router-link v-if="item.path" :class="classes" active-class="active" :to="`${base}/${item.path}`" v-html="itemName" />
-  <a v-else-if="item.link" :class="classes" :href="item.link" v-html="itemName"></a>
+  <router-link
+    v-if="item.path"
+    :class="classes"
+    active-class="active"
+    :to="`${base}/${item.path}`"
+    v-html="itemName"
+  />
+  <a
+    v-else-if="item.link"
+    :class="classes"
+    :href="item.link"
+    v-html="itemName"
+  ></a>
   <a v-else :class="classes" v-html="itemName"></a>
 </template>
 
 <script>
 // import { camelCase, upperFirst } from 'lodash'
-import { camelCase, upperFirst } from '../utils' // 使用简版
+import { camelCase, upperFirst } from "../utils"; // 使用简版
 
 export default {
-  name: 'kit-doc-nav-link',
+  name: "kit-doc-nav-link",
 
   props: {
     base: String,
@@ -18,21 +29,21 @@ export default {
 
   computed: {
     itemName() {
-      const name = (this.item.title || this.item.name).split(' ')
-      const cName = upperFirst(camelCase(name[0]))
-      return `${cName} <small>${name.slice(1).join(' ')}</small>`
+      const name = (this.item.title || this.item.name).split(" ");
+      const cName = upperFirst(camelCase(name[0]));
+      return `${cName} <small>${name.slice(1).join(" ")}</small>`;
     },
 
     classes() {
-      const { status } = this.$props.item
+      const { status } = this.$props.item;
       return {
         // [`${prefixCls}-${status}`]: !!status,
         [`doc-nav-link`]: true,
-        [`is-${status}`]: !!status,
-      }
-    },
-  },
-}
+        [`is-${status}`]: !!status
+      };
+    }
+  }
+};
 </script>
 
 <style lang="stylus">
@@ -65,4 +76,3 @@ $color-error    = #f04134;
   }
 }
 </style>
-

@@ -3,14 +3,16 @@
     <div
       v-if="leftNav"
       class="kit-doc-footer-nav__link kit-doc-footer-nav__left"
-      @click="handleNavClick('prev')">
+      @click="handleNavClick('prev');"
+    >
       <div class="kit-doc-footer-nav__arrow-left"></div>
       <span>{{ leftNav.title }}</span>
     </div>
     <div
       v-if="rightNav"
       class="kit-doc-footer-nav__link kit-doc-footer-nav__right"
-      @click="handleNavClick('next')">
+      @click="handleNavClick('next');"
+    >
       <span>{{ rightNav.title }}</span>
       <div class="kit-doc-footer-nav__arrow-right"></div>
     </div>
@@ -19,7 +21,7 @@
 
 <script>
 export default {
-  name: 'kit-doc-footer-nav',
+  name: "kit-doc-footer-nav",
 
   props: {
     // navConfig: Array,
@@ -27,26 +29,26 @@ export default {
     index: Number,
     base: {
       type: String,
-      default: '',
-    },
+      default: ""
+    }
   },
 
   data() {
     return {
       nav: [],
-      currentPath: null,
+      currentPath: null
       // leftNav: null,
       // rightNav: null,
-    }
+    };
   },
 
   computed: {
     leftNav() {
-      return this.list[this.index - 1]
+      return this.list[this.index - 1];
     },
     rightNav() {
-      return this.list[this.index + 1]
-    },
+      return this.list[this.index + 1];
+    }
   },
 
   // watch: {
@@ -93,28 +95,28 @@ export default {
     // },
 
     handleNavClick(direction) {
-      const nav = direction === 'prev' ? this.leftNav : this.rightNav;
+      const nav = direction === "prev" ? this.leftNav : this.rightNav;
       if (nav.path) {
         this.$router.push(`${this.base}/${nav.path}`);
       } else if (nav.link) {
         window.location.href = nav.link;
       }
-    },
+    }
   },
 
   keyboardHandler() {
-    window.addEventListener('keyup', (event) => {
+    window.addEventListener("keyup", event => {
       switch (event.keyCode) {
         case 37: // left
-          this.handleNavClick('prev');
+          this.handleNavClick("prev");
           break;
         case 39: // right
-          this.handleNavClick('next');
+          this.handleNavClick("next");
           break;
       }
     });
-  },
-}
+  }
+};
 </script>
 
 <style lang="stylus">

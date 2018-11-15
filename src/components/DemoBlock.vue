@@ -6,10 +6,10 @@
 </template>
 
 <script>
-import Vue from 'vue';
+// import Vue from "vue";
 
 export default {
-  name: 'kit-doc-demo-block',
+  name: "kit-doc-demo-block",
 
   props: {
     title: String
@@ -29,7 +29,7 @@ export default {
     color: $kit-doc-text-light-blue;
     padding: 40px 15px 15px;
   }
-  
+
   &:first-of-type {
     .kit-doc-demo-block__title {
       padding-top: 20px;

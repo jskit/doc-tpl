@@ -8,50 +8,47 @@
 
 <script>
 // import { map } from 'lodash'
-import configDocs from '@/docs.config'
+import configDocs from "@/docs.config";
 
 function map(arr, key) {
   return arr.map(item => {
-    return item[key]
-  })
+    return item[key];
+  });
 }
-const docs = map(configDocs.nav[0].groups[0].list, 'path')
+const docs = map(configDocs.nav[0].groups[0].list, "path");
 export default {
-  name: 'layout-docs',
-  components: {
-  },
+  name: "layout-docs",
+  components: {},
 
   data() {
     return {
       // simulator: this.getSimulatorPath(),
       config: configDocs,
-      pathDir: '',
-    }
+      pathDir: ""
+    };
   },
 
   computed: {
     getSimulatorPath() {
-      const dir = this.$route.path.split('/').pop()
+      const dir = this.$route.path.split("/").pop();
       if (docs.indexOf(dir) > -1) {
-        return '/#/demo/'
+        return "/#/demo/";
       }
-      return `/#/demo/${dir}`
-    },
+      return `/#/demo/${dir}`;
+    }
   },
 
   watch: {
-    '$route'(to, from) {
+    $route(to, from) {
       // 默认使用 'slide-left' 如果使用的是 back（暂判断不出来），也使用 slide-left
-      const toDepth = to.path.split('/').length
-      const fromDepth = from.path.split('/').length
-      this.transition = toDepth < fromDepth ? 'slide-right' : 'slide-left'
-    },
+      const toDepth = to.path.split("/").length;
+      const fromDepth = from.path.split("/").length;
+      this.transition = toDepth < fromDepth ? "slide-right" : "slide-left";
+    }
   },
 
-  methods: {
-
-  },
-}
+  methods: {}
+};
 </script>
 
 <style lang="stylus" scope>

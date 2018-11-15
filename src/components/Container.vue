@@ -1,17 +1,20 @@
 <template>
-  <div class="kit-doc-container kit-doc-row" :class="[{ 'kit-doc-container--with-simulator': hasSimulator }]">
+  <div
+    class="kit-doc-container kit-doc-row"
+    :class="[{ 'kit-doc-container--with-simulator': hasSimulator }]"
+  >
     <slot></slot>
   </div>
 </template>
 
 <script>
 export default {
-  name: 'kit-doc-container',
+  name: "kit-doc-container",
 
   props: {
-    hasSimulator: Boolean,
-  },
-}
+    hasSimulator: Boolean
+  }
+};
 </script>
 
 <style lang="stylus">

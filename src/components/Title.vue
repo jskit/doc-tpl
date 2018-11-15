@@ -6,10 +6,10 @@
 
 <script>
 export default {
-  name: 'kit-doc-title',
+  name: "kit-doc-title",
 
   props: {
-    title: String,
-  },
-}
+    title: String
+  }
+};
 </script>

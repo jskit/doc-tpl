@@ -1,6 +1,6 @@
 <template>
-  <ul class="kit-doc-dropdown" :style="{ top: top + 'px'}">
-    <li v-for="(value, key) in nav" class="kit-doc-dropdown__item">
+  <ul class="kit-doc-dropdown" :style="{ top: top + 'px' }">
+    <li v-for="(value, key) in nav" class="kit-doc-dropdown__item" :key="key">
       <a :href="value">{{ key }}</a>
     </li>
   </ul>
@@ -8,7 +8,7 @@
 
 <script>
 export default {
-  name: 'kit-doc-dropdown',
+  name: "kit-doc-dropdown",
 
   props: {
     nav: Object,

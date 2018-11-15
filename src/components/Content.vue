@@ -6,18 +6,18 @@
 
 <script>
 export default {
-  name: 'kit-doc-content',
+  name: "kit-doc-content",
 
   computed: {
     currentPage() {
       const { path } = this.$route;
       if (path) {
-        return path.split('/').slice(-1)[0];
+        return path.split("/").slice(-1)[0];
       }
       return this.$route.name;
-    },
-  },
-}
+    }
+  }
+};
 </script>
 
 <style lang="stylus">
