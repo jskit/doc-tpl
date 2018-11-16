@@ -2,7 +2,7 @@
   "name": "kit-doc",
   "version": "3.0.1",
   "description": "文档模板",
-  "main": "./packages/index.js",
+  "main": "./src/index.js",
   "scripts": {
     "lib:dev": "node_modules/.bin/webpack-dev-server --config ./build/webpack.dev.conf.js",
     "lib:build": "webpack --hide-modules --progress --config ./build/webpack.prod.conf.js",
