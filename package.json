@@ -1,19 +1,22 @@
 {
   "name": "kit-doc",
   "version": "3.0.2",
-  "description": "文档模板",
-  "main": "./src/index.js",
+  "description": "document preview template",
+  "main": "./lib/index.js",
   "scripts": {
-    "lib:dev": "node_modules/.bin/webpack-dev-server --config ./build/webpack.dev.conf.js",
-    "lib:build": "webpack --hide-modules --progress --config ./build/webpack.prod.conf.js",
-    "release": "npm run lib:build && npm publish"
+    "dev": "node_modules/.bin/webpack-dev-server --config ./build/webpack.dev.conf.js",
+    "build": "webpack --hide-modules --progress --config ./build/webpack.prod.conf.js",
+    "release": "npm run build && npm publish"
+  },
+  "bin": {
+    "kit-doc": "./cli/index.js"
   },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/jskit/kit-doc.git"
   },
   "keywords": [
-    "doc",
+    "document",
     "preview",
     "template"
   ],
