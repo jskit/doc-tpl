@@ -4,9 +4,9 @@ import Router from "vue-router";
 import layoutDocs from "../layout/docs";
 import layoutDemo from "../layout/demo";
 
-const Index = () => import(/* webpackChunkName: "docs" */ `@root/README.md`);
-const ChangeLog = () =>
-  import(/* webpackChunkName: "docs" */ `@root/CHANGELOG.md`);
+// const Index = () => import(/* webpackChunkName: "docs" */ `@root/README.md`);
+// const ChangeLog = () =>
+//   import(/* webpackChunkName: "docs" */ `@root/CHANGELOG.md`);
 
 const lazyLoad =
   process.env.NODE_ENV === "production"
@@ -25,6 +25,23 @@ Vue.use(Router);
 //     }
 //   }
 // ];
+const Index = {
+  template: `
+    <div><h1>kit-doc-demo</h1>
+
+    <p>具体内容参看 https://github.com/jskit/kit-doc#readme</p></div>
+  `
+};
+const docsComming = {
+  template: `
+    <div>docs isComming</div>
+  `
+};
+const isComming = {
+  template: `
+    <div>demo isComming</div>
+  `
+};
 
 const docsRoutes = [
   {
@@ -45,28 +62,23 @@ const docsRoutes = [
           title: "快速上手"
         }
       },
-      {
-        path: "changelog",
-        name: "changelog",
-        component: ChangeLog,
-        meta: {
-          title: "更新日志"
-        }
-      },
+      // {
+      //   path: "changelog",
+      //   name: "changelog",
+      //   component: ChangeLog,
+      //   meta: {
+      //     title: "更新日志"
+      //   }
+      // },
       // ...
       {
         path: "*",
-        component: lazyLoad("docs/is-comming.md")
+        component: docsComming, // lazyLoad("docs/is-comming")
       }
     ]
   }
 ];
 
-const isComming = {
-  template: `
-    <div>demo isComming</div>
-  `
-};
 const demoRoutes = [
   {
     path: "/demo", // `/${config.navBase}`,

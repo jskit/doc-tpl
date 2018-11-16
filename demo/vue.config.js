@@ -14,12 +14,13 @@ module.exports = {
     config.module
       .rule("md")
       .test(/\.md$/)
-      // .use("raw-loader")
-      // .loader("raw-loader");
-      .use("vue-markdown-loader")
-      .loader("vue-markdown-loader");
+      .use("raw-loader")
+      .loader("raw-loader");
+    // .use("vue-markdown-loader")
+    // .loader("vue-markdown-loader");
   },
 
+  transpileDependencies: [],
   runtimeCompiler: true,
 
   css: {

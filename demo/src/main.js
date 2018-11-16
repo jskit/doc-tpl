@@ -4,7 +4,7 @@ import Vue from "vue";
 import Router from "vue-router";
 import App from "./App";
 import router from "./router";
-import KitDoc from "../";
+import KitDoc from "../../src";
 
 import "./permission";
 import "./registerServiceWorker";

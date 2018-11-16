@@ -22,13 +22,14 @@ Usage example:
 </section>
 
 // script
-import configDocs from '@/config/docs'
+import docsConfig from '@/docs.config'
+
 function map(arr, key) {
   return arr.map(item => {
     return item[key]
   })
 }
-const docs = map(configDocs.nav[0].groups[0].list, 'path')
+const docs = map(docsConfig.nav[0].groups[0].list, 'path')
 export default {
   name: 'tpl-docs',
   components: {
@@ -37,7 +38,7 @@ export default {
   data() {
     return {
       // simulator: this.getSimulatorPath(),
-      config: configDocs,
+      config: docsConfig,
       pathDir: '',
     }
   },

@@ -1,0 +1,90 @@
+@import './var';
+@import './function';
+
+@font-face {
+  font-family: "Helvetica Neue For Number";
+  src: local("Helvetica Neue");
+  unicode-range: U+30-39;
+}
+
+// Reset the box-sizing
+// html {
+* {
+  box-sizing: border-box;
+
+  // remove tap highlight color for mobile safari
+  -webkit-tap-highlight-color: transparent;
+}
+
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+body,
+button,
+input,
+select,
+textarea {
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+}
+
+input {
+  line-height: normal !important;
+}
+
+body {
+  margin: 0;
+  color: #333;
+  font-size: 16px;
+  overflow-x: auto;
+  background-color: #fff;
+  -webkit-font-smoothing: antialiased;
+  font-family: PingFang SC, "Helvetica Neue", Arial, sans-serif;
+}
+
+p {
+  margin: 0;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  margin: 0;
+  font-size: inherit;
+}
+
+ul,
+ol {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+.clearfix {
+  clearfix();
+}
+
+.kit-doc {
+  background-color: #ececec;
+  background-image: linear-gradient(180deg, #031a49, $kit-doc-blue);
+}
+
+.kit-doc-row {
+  width: 100%;
+
+  @media(min-width: $kit-doc-row-max-width) {
+    width: $kit-doc-row-max-width;
+    margin: 0 auto;
+  }
+}
+
