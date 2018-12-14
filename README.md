@@ -1,5 +1,7 @@
 # kit-doc
 
+[![Greenkeeper badge](https://badges.greenkeeper.io/jskit/kit-doc.svg)](https://greenkeeper.io/)
+
 preview doc template by Vue
 
 ## Usage
